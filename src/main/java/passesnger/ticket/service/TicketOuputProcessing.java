@@ -37,10 +37,7 @@ public class TicketOuputProcessing {
     }
 
     private boolean isCompleteJourney(int fromStationNumber, int toStationNumber, List<Station> stationList) {
-        if (Math.abs(fromStationNumber - toStationNumber) == stationList.size()) {
-            return true;
-        }
-        return false;
+        return (Math.abs(fromStationNumber - toStationNumber) == stationList.size());
     }
 
     private int getPrice(int fromStationNumber, int toStationNumber) {
@@ -56,7 +53,7 @@ public class TicketOuputProcessing {
             } else if (variedPriceStationNumber >= StationRuleConstants.NUMBER_OF_STATIONS_FOR_VARY_PRICE) {
                 totalPrice = PriceConstants.BASE_PRICE + (variedPriceStationNumber / StationRuleConstants.NUMBER_OF_STATIONS_FOR_VARY_PRICE * PriceConstants.EXTRA_PRICE_FOR_EVERY_FIVE_STATIONS) + PriceConstants.EXTRA_PRICE_FOR_EVERY_FIVE_STATIONS;
             } else {
-                totalPrice = PriceConstants.BASE_PRICE + PriceConstants.EXTRA_PRICE_FOR_EVERY_FIVE_STATIONS + PriceConstants.EXTRA_PRICE_FOR_EVERY_FIVE_STATIONS;
+                totalPrice = PriceConstants.BASE_PRICE + PriceConstants.EXTRA_PRICE_FOR_EVERY_FIVE_STATIONS;
             }
         }
         return totalPrice;
